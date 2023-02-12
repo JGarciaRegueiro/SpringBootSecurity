@@ -6,5 +6,4 @@ import com.jorge.exampleRest.modelo.entities.Cliente;
 
 public interface ClienteRepository extends JpaRepository<Cliente, Integer>{
 
-	
 }
