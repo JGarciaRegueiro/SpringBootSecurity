@@ -1,5 +1,5 @@
 package com.grupo4.tienda;
 
-public class pruebaDani {
+public class pruebaMarta {
 
 }
