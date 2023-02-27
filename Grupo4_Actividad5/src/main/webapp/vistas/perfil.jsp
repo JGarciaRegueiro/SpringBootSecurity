@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Prueba</h1>
+	<h1>Perfil</h1>
 </body>
 </html>
