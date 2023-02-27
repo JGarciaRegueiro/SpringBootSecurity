@@ -1,7 +1,7 @@
 package com.grupo4.tienda.entities;
 
 import java.io.Serializable;
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.sql.Timestamp;
 import java.util.Objects;
 import java.math.BigInteger;

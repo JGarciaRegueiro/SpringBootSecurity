@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.grupo4.tienda.entities.Tarjeta;
 
-public interface TarjetaRepository extends JpaRepository <Tarjeta,Integer>{
+public interface TarjetaRepository extends JpaRepository<Tarjeta, Integer>{
 
 }
