@@ -11,8 +11,10 @@
 			<nav>
 				<a href="/inicio">Inicio</a>
 				<a href="/categorias">Categorías</a>
-				<a href="/perfil">Mi cuenta</a>
-				<a href="/inicio">Carrito</a>
+				<a href="/login">Iniciar sesión</a>
+				<a href="/registro">Registrarse</a>
+				<a href="/perfil">Mi perfil</a>
+				<a href="/carrito">Carrito</a>
 			</nav>
 		</header>
 		<h1>Inicio</h1>

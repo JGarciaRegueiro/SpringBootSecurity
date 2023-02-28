@@ -2,8 +2,10 @@ package com.grupo4.tienda.entities;
 
 import java.io.Serializable;
 import jakarta.persistence.*;
-import java.sql.Timestamp;
+import java.util.Date;
 import java.util.Objects;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 /**
@@ -23,19 +25,21 @@ public class Usuario implements Serializable {
 
 	private String apellidos;
 
-	private String contraseña;
+	private String pass;
 
 	private String email;
 
 	@Column(name="fecha_nacimiento")
-	private Timestamp fechaNacimiento;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date fechaNacimiento;
 
 	@Column(name="fecha_registro")
-	private Timestamp fechaRegistro;
+	private Date fechaRegistro;
 
 	private String nombre;
 
 	public Usuario() {
+		this.fechaRegistro = new Date();
 	}
 
 	public int getIdUsuario() {
@@ -54,12 +58,12 @@ public class Usuario implements Serializable {
 		this.apellidos = apellidos;
 	}
 
-	public String getContraseña() {
-		return this.contraseña;
+	public String getPass() {
+		return this.pass;
 	}
 
-	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
+	public void setPass(String pass) {
+		this.pass = pass;
 	}
 
 	public String getEmail() {
@@ -70,19 +74,19 @@ public class Usuario implements Serializable {
 		this.email = email;
 	}
 
-	public Timestamp getFechaNacimiento() {
+	public Date getFechaNacimiento() {
 		return this.fechaNacimiento;
 	}
 
-	public void setFechaNacimiento(Timestamp fechaNacimiento) {
+	public void setFechaNacimiento(Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
-	public Timestamp getFechaRegistro() {
+	public Date getFechaRegistro() {
 		return this.fechaRegistro;
 	}
 
-	public void setFechaRegistro(Timestamp fechaRegistro) {
+	public void setFechaRegistro(Date fechaRegistro) {
 		this.fechaRegistro = fechaRegistro;
 	}
 
@@ -111,7 +115,7 @@ public class Usuario implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Usuario [idUsuario=" + idUsuario + ", apellidos=" + apellidos + ", contraseña=" + contraseña
+		return "Usuario [idUsuario=" + idUsuario + ", apellidos=" + apellidos + ", pass=" + pass
 				+ ", email=" + email + ", fechaNacimiento=" + fechaNacimiento + ", fechaRegistro=" + fechaRegistro
 				+ ", nombre=" + nombre + "]";
 	}
