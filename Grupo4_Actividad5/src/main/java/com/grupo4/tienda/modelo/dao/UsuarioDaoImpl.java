@@ -10,17 +10,17 @@ import com.grupo4.tienda.repository.UsuarioRepository;
 public class UsuarioDaoImpl implements UsuarioDao{
 
 	@Autowired
-	private UsuarioRepository udao;
+	private UsuarioRepository urepo;
 	
 	@Override
 	public boolean altaUsuario(Usuario usuario) {
-		udao.save(usuario);
+		urepo.save(usuario);
 		return true;
 	}
 
 	@Override
-	public boolean consultarUsuario() {
-		// TODO Auto-generated method stub
+	public boolean consultarUsuario (Usuario usuario) {
+		
 		return false;
 	}
 

@@ -5,6 +5,6 @@ import com.grupo4.tienda.entities.Usuario;
 public interface UsuarioDao {
 	
 	boolean altaUsuario(Usuario usuario);
-	boolean consultarUsuario();
+	boolean consultarUsuario(Usuario usuario);
 	
 }
