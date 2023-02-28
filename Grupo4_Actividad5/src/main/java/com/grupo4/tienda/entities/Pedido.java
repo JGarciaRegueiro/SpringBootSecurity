@@ -1,9 +1,11 @@
 package com.grupo4.tienda.entities;
 
 import java.io.Serializable;
-import jakarta.persistence.*;
 import java.sql.Timestamp;
 import java.util.Objects;
+
+import javax.persistence.*;
+import javax.persistence.Table;
 
 
 /**

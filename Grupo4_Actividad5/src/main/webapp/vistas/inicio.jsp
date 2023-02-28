@@ -18,5 +18,6 @@
 			</nav>
 		</header>
 		<h1>Inicio</h1>
+		<h2>${mensaje }</h2>
 	</body>
 </html>

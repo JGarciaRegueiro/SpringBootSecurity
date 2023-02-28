@@ -1,8 +1,9 @@
 package com.grupo4.tienda.entities;
 
 import java.io.Serializable;
-import jakarta.persistence.*;
+import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.Objects;
 import java.math.BigInteger;
 
@@ -26,7 +27,7 @@ public class Tarjeta implements Serializable {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="fecha_caducidad")
-	private Timestamp fechaCaducidad;
+	private Date fechaCaducidad;
 
 	private String nombre;
 
@@ -52,11 +53,11 @@ public class Tarjeta implements Serializable {
 		this.cvv = cvv;
 	}
 
-	public Timestamp getFechaCaducidad() {
+	public Date getFechaCaducidad() {
 		return this.fechaCaducidad;
 	}
 
-	public void setFechaCaducidad(Timestamp fechaCaducidad) {
+	public void setFechaCaducidad(Date fechaCaducidad) {
 		this.fechaCaducidad = fechaCaducidad;
 	}
 

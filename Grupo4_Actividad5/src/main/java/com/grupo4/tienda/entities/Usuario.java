@@ -1,7 +1,7 @@
 package com.grupo4.tienda.entities;
 
 import java.io.Serializable;
-import jakarta.persistence.*;
+import javax.persistence.*;
 import java.util.Date;
 import java.util.Objects;
 

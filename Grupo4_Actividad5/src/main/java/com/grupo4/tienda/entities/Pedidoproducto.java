@@ -3,7 +3,7 @@ package com.grupo4.tienda.entities;
 import java.io.Serializable;
 import java.util.Objects;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 
 /**

@@ -20,8 +20,9 @@
 		<h1>Login</h1>
 		<form action="/login" method="POST">
 			<input type="email" name="email" placeholder="Email" required><br><br>
-			<input type="password" name="contraseña" placeholder="Contraseña" required><br><br>
+			<input type="text" name="pass" placeholder="Contraseña" required><br><br>
 			<input type="submit" value="Iniciar sesión">
 		</form>
+		<h1>${mensaje}</h1>
 	</body>
 </html>
