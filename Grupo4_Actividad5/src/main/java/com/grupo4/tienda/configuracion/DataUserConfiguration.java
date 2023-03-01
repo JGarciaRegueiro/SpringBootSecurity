@@ -35,7 +35,7 @@ public class DataUserConfiguration extends WebSecurityConfigurerAdapter {
 			.csrf().disable()
 			.authorizeRequests()
 			//permitimos sin auth
-			.antMatchers("/bootstrap/**", "/images/**", "/css/**", "js/**").permitAll()
+			.antMatchers("/bootstrap/**", "/images/**", "/css/**", "js/**", "/rest/**").permitAll()
 			//vistas sin auth
 			.antMatchers("/inicio", "/login","/logout", "/registro", "/search").permitAll()
 			//vistas para roles
