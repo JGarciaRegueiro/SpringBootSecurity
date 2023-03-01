@@ -7,6 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.grupo4.tienda.entities.Usuario;
 import com.grupo4.tienda.modelo.dao.UsuarioDaoImpl;
@@ -37,11 +39,12 @@ public class TiendaController {
 	}
 	
 	@PostMapping("/login")
-	public String procIniciarSesion(Model model, Usuario usuario) {
-		if ((udao.consultarUsuario(usuario))){
+	public String procIniciarSesion(RedirectAttributes ratt, @RequestParam("username") String username,
+			@RequestParam("password") String password) {
+		if ((udao.consultarUsuario(username,password))){
 			return "redirect:/inicio";
 		} else {
-			model.addAttribute("mensaje", "Esta cuenta NO existe");
+			ratt.addFlashAttribute("mensaje", "Esta cuenta NO existe");
 			return "login";
 		}
 	}

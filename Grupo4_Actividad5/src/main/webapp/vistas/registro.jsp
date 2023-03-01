@@ -22,7 +22,7 @@
 			<input type="text" name="nombre" placeholder="Nombre" required><br><br>
 			<input type="text" name="apellidos" placeholder="Apellidos" required><br><br>
 			<input type="date" name="fechaNacimiento" placeholder="fecha de nacimiento" required><br><br>
-			<input type="email" name="email" placeholder="Email" required><br><br>
+			<input type="email" name="username" placeholder="Email" required><br><br>
 			<input type="text" name="pass" placeholder="Contraseña" required><br><br>
 			<input type="submit" value="Registrarme">
 		</form>

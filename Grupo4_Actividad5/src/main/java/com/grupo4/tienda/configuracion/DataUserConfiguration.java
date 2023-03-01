@@ -23,10 +23,10 @@ public class DataUserConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth
 			.jdbcAuthentication().dataSource(dataSource)
-			.usersByUsernameQuery("select email,pass from Usuarios where email=?")
-			.authoritiesByUsernameQuery("select u.id_usuario, r.id_rol from Usuarios_Roles ur " +
-			"inner join Usuarios u on u.id_usuario= ur.id_usuario " +
-			"inner join Roles r on r.id_rol = ur.id_rol " + "where u.id_usuario=?");
+			.usersByUsernameQuery("select username, pass, 'true' as enabled from Usuarios where username=?")
+			.authoritiesByUsernameQuery("select u.id_usuario, r.id_rol from Usuariosroles ur " +
+					"inner join Usuarios u on u.id_usuario = ur.id_usuario " +
+					"inner join Roles r on r.id_rol = ur.id_rol " + "where u.username=?");
 	}
 
 	@Override

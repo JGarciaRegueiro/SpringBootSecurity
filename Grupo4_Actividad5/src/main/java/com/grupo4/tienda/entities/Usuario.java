@@ -27,7 +27,7 @@ public class Usuario implements Serializable {
 
 	private String pass;
 
-	private String email;
+	private String username;
 
 	@Column(name="fecha_nacimiento")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -66,12 +66,12 @@ public class Usuario implements Serializable {
 		this.pass = pass;
 	}
 
-	public String getEmail() {
-		return this.email;
+	public String getUsername() {
+		return this.username;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public Date getFechaNacimiento() {
@@ -116,7 +116,7 @@ public class Usuario implements Serializable {
 	@Override
 	public String toString() {
 		return "Usuario [idUsuario=" + idUsuario + ", apellidos=" + apellidos + ", pass=" + pass
-				+ ", email=" + email + ", fechaNacimiento=" + fechaNacimiento + ", fechaRegistro=" + fechaRegistro
+				+ ", username=" + username + ", fechaNacimiento=" + fechaNacimiento + ", fechaRegistro=" + fechaRegistro
 				+ ", nombre=" + nombre + "]";
 	}
 	
