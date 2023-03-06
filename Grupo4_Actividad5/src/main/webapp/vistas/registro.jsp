@@ -7,16 +7,7 @@
 		<title>Insert title here</title>
 	</head>
 	<body>
-		<header>
-			<nav>
-				<a href="/inicio">Inicio</a>
-				<a href="/categorias">Categorías</a>
-				<a href="/login">Iniciar sesión</a>
-				<a href="/registro">Registrarse</a>
-				<a href="/perfil">Mi perfil</a>
-				<a href="/carrito">Carrito</a>
-			</nav>
-		</header>
+		<jsp:include page="inicio.jsp"></jsp:include>
 		<h1>Registro</h1>
 		<form action="/registro" method="POST">
 			<input type="text" name="nombre" placeholder="Nombre" required><br><br>

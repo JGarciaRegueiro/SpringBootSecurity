@@ -14,10 +14,9 @@ public class PasswordRestController {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	
-	@GetMapping("/demo-bcrypt/{pass}")
+	@GetMapping("/encriptar/{pass}")
 	public String pruebaBcrypt(@PathVariable("pass")String password) {
 		String encriptado=passwordEncoder.encode(password);
 		return encriptado;
 	}
-
 }

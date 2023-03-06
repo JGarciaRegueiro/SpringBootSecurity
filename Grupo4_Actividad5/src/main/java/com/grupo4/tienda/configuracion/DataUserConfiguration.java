@@ -24,9 +24,8 @@ public class DataUserConfiguration extends WebSecurityConfigurerAdapter {
 		auth
 			.jdbcAuthentication().dataSource(dataSource)
 			.usersByUsernameQuery("select username, pass, 'true' as enabled from Usuarios where username=?")
-			.authoritiesByUsernameQuery("select u.id_usuario, r.id_rol from Usuariosroles ur " +
-					"inner join Usuarios u on u.id_usuario = ur.id_usuario " +
-					"inner join Roles r on r.id_rol = ur.id_rol " + "where u.username=?");
+			.authoritiesByUsernameQuery(" select u.username, r.nombre_rol from usuarios u join usuariosroles ur on u.id_usuario = ur.id_usuario join roles r on ur.id_rol = r.id_rol where u.username =?"); 
+		 
 	}
 
 	@Override
@@ -35,11 +34,12 @@ public class DataUserConfiguration extends WebSecurityConfigurerAdapter {
 			.csrf().disable()
 			.authorizeRequests()
 			//permitimos sin auth
-			.antMatchers("/bootstrap/**", "/images/**", "/css/**", "js/**", "/rest/**").permitAll()
+			.antMatchers("/bootstrap/**", "/images/**", "/css/**", "/js/**", "/rest/**").permitAll()
 			//vistas sin auth
 			.antMatchers("/inicio", "/login","/logout", "/registro", "/search").permitAll()
 			//vistas para roles
 			.antMatchers("/categorias/**").hasAnyAuthority("ROLE_CLIENTE")
+			.antMatchers("/producto/**","/usuario/**").hasAnyAuthority("ROLE_ADMINISTRADOR")
 			
 			//Todas las demás requieren auth
 			.anyRequest().authenticated()

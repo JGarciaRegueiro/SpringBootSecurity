@@ -8,6 +8,6 @@
 	</head>
 	<body>
 		<jsp:include page="inicio.jsp"></jsp:include>
-		<h1>Carrito</h1>
+		<h1>Usuarios</h1>
 	</body>
 </html>

@@ -70,4 +70,15 @@ public class TiendaController {
 	public String procCarrito(){
 		return "carrito";
 	}
+	
+	@GetMapping("/producto")
+	public String procProducto(){
+		return "producto";
+	}
+	
+	@GetMapping("/usuario")
+	public String procUsuario(){
+		return "usuario";
+	}
+	
 }
