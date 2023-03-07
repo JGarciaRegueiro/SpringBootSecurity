@@ -21,7 +21,7 @@ public class Producto implements Serializable {
 	@Column(name="id_producto")
 	private int idProducto;
 
-	private String descripción;
+	private String descripcion;
 
 	private String nombre;
 
@@ -40,12 +40,12 @@ public class Producto implements Serializable {
 		this.idProducto = idProducto;
 	}
 
-	public String getDescripción() {
-		return this.descripción;
+	public String getDescripcion() {
+		return this.descripcion;
 	}
 
-	public void setDescripción(String descripción) {
-		this.descripción = descripción;
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
 
 	public String getNombre() {
@@ -89,7 +89,7 @@ public class Producto implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Producto [idProducto=" + idProducto + ", descripción=" + descripción + ", nombre=" + nombre
+		return "Producto [idProducto=" + idProducto + ", descripcion=" + descripcion + ", nombre=" + nombre
 				+ ", precio=" + precio + ", stock=" + stock + "]";
 	}
 	

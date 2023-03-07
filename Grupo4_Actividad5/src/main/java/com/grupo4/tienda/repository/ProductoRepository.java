@@ -17,6 +17,4 @@ public interface ProductoRepository extends JpaRepository<Producto, Integer>{
 	
 	@Query("select p from Producto p order by stock asc")
 	public List<Producto> buscarPorMenosStock();
-	
-	
 }

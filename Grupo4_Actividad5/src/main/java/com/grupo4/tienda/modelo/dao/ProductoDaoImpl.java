@@ -23,22 +23,52 @@ public class ProductoDaoImpl implements ProductoDao{
 		}
 		return productos;
 	}
+	
+	@Override
+	public Producto buscarUno(int idProducto) {
+		return prepo.findById(idProducto).orElse(null);
+	}
 
 	@Override
 	public boolean añadirProducto(Producto producto) {
-		prepo.save(producto);
+		try{
+			System.out.println(producto);
+			prepo.save(producto);
+			System.out.println(producto);
+		}catch (Exception e) {
+			return false;
+		}
 		return true;
 	}
 	
+	@Override
+	public boolean eliminarProducto(int idProducto) {
+		try {
+			prepo.deleteById(idProducto);
+		} catch (Exception e) {
+			return false;
+		}
+		return true;
+	}
+	
+
+	@Override
+	public boolean editarProducto(Producto producto) {
+		prepo.save(producto);
+		return true;
+	}
+
+	@Override
 	public List<Producto> listadoPorPrecioAscendente() {
 		return prepo.buscarPorPrecioAscendente();
 	}
 	
+	@Override
 	public List<Producto> listadoPorPrecioDescendente() {
 		return prepo.buscarPorPrecioDescendente();
 	}
 	
-	
+	@Override
 	public List<Producto> listadoPorMenorStock(){
 		return prepo.buscarPorMenosStock();
 	}
