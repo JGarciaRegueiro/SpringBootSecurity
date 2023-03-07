@@ -18,7 +18,7 @@ import com.grupo4.tienda.modelo.dao.ProductoDaoImpl;
 import com.grupo4.tienda.modelo.dao.UsuarioDaoImpl;
 
 @Controller
-@RequestMapping
+@RequestMapping 
 public class TiendaController {
 	
 	@Autowired
@@ -29,6 +29,11 @@ public class TiendaController {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 
+	@GetMapping("")
+	public String procAcceso(){
+		return "inicio";
+	}
+	
 	@GetMapping("/inicio")
 	public String procInicio(){
 		return "inicio";
@@ -39,22 +44,6 @@ public class TiendaController {
 		List<Producto> listadoProductos=pdao.listadoProductos();
 		model.addAttribute("listadoProductos", listadoProductos);
 		return "categoria";
-	}
-	
-	@GetMapping("/login")
-	public String procLogin(){
-		return "login";
-	}
-	
-	@PostMapping("/login")
-	public String procIniciarSesion(RedirectAttributes ratt, @RequestParam("username") String username,
-			@RequestParam("password") String password) {
-		if ((udao.consultarUsuario(username,password))){
-			return "redirect:/inicio";
-		} else {
-			ratt.addFlashAttribute("mensaje", "Esta cuenta NO existe");
-			return "login";
-		}
 	}
 	
 	@GetMapping("/registro")
@@ -85,7 +74,6 @@ public class TiendaController {
 		model.addAttribute("productos", productos);
 		return "productos";	
 	}
-		
 	
 	@GetMapping("/usuario")
 	public String procUsuario(){

@@ -35,13 +35,14 @@ public class DataUserConfiguration extends WebSecurityConfigurerAdapter {
 			//permitimos sin auth
 			.antMatchers("/bootstrap/**", "/images/**", "/css/**", "js/**", "/rest/**").permitAll()
 			//vistas sin auth
-			.antMatchers("/inicio", "/login","/logout", "/registro", "/search").permitAll()
+			.antMatchers("/**", "/login", "/logout", "/registro", "/search").permitAll()
 			//vistas para roles
-			.antMatchers("/categorias/**").hasAnyAuthority("ROLE_CLIENTE", "ROLE_ADMINISTRADOR")
-			.antMatchers("/producto/**","/usuario/**").hasAnyAuthority("ROLE_ADMINISTRADOR")
+			.antMatchers("/categorias/**", "/perfil/**").hasAnyAuthority("ROLE_CLIENTE")
+			.antMatchers("/producto/**","/usuario/**","/categorias/**").hasAnyAuthority("ROLE_ADMINISTRADOR")
 			
 			//Todas las demás requieren auth
 			.anyRequest().authenticated()
+			
 			//el formulario de login no requiere autenticación
 			.and().formLogin().permitAll();
 	}

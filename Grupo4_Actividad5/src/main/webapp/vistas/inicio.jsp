@@ -17,10 +17,13 @@
 				</sec:authorize>
 				<a href="/categorias">Categorías</a>
 				<a href="/login">Iniciar sesión</a>
-				<a href="/registro">Registrarse</a>
-				<a href="/perfil">Mi perfil</a>
 				<sec:authorize access="isAuthenticated()">
-					<a href="/carrito">Carrito</a>
+					<a href="/logout">Cerrar sesión</a>
+				</sec:authorize>
+				<a href="/registro">Registrarse</a>
+				<a href="/carrito">Carrito</a>
+				<sec:authorize access="isAuthenticated()">
+					<a href="/perfil">Mi perfil</a>
 				</sec:authorize>
 			</nav>
 		</header>

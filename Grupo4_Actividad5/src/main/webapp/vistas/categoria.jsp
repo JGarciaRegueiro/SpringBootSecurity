@@ -11,6 +11,17 @@
 	</head>
 	<body>
 		<jsp:include page="inicio.jsp"></jsp:include>
+		
+		<h1>Ordenar por:</h1>
+		<form>
+			<select onchange="location = this.value;">
+				<option value="">Ordenar por...</option>
+				<option value="categoria/precio/ascendente">Precio Ascendente</option>
+				<option value="categoria/precio/descendente">Precio Descendente</option>
+				<option value="categoria/stock">Volumen de stock</option>
+			</select>
+	    </form>
+		
 		<sec:authorize access="hasAnyAuthority('ROLE_ADMINISTRADOR')">
 			<a href="/producto/alta" class="btn btn-primary btn-sm" >Nuevo Producto</a></td>
 		</sec:authorize>
