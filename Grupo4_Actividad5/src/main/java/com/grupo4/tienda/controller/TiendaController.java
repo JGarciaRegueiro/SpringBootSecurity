@@ -1,5 +1,7 @@
 package com.grupo4.tienda.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -10,13 +12,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.grupo4.tienda.entities.Producto;
 import com.grupo4.tienda.entities.Usuario;
+import com.grupo4.tienda.modelo.dao.ProductoDaoImpl;
 import com.grupo4.tienda.modelo.dao.UsuarioDaoImpl;
 
 @Controller
 @RequestMapping
 public class TiendaController {
 	
+	@Autowired
+	private ProductoDaoImpl pdao;
 	@Autowired
 	private UsuarioDaoImpl udao;
 	
@@ -72,9 +78,12 @@ public class TiendaController {
 	}
 	
 	@GetMapping("/producto")
-	public String procProducto(){
-		return "producto";
+	public String procProducto(Model model){
+		List<Producto> productos = pdao.listadoProductos();
+		model.addAttribute("productos", productos);
+		return "productos";	
 	}
+		
 	
 	@GetMapping("/usuario")
 	public String procUsuario(){
