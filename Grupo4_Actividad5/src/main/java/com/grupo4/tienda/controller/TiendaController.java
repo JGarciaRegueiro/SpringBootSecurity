@@ -35,7 +35,9 @@ public class TiendaController {
 	}
 	
 	@GetMapping("/categorias")
-	public String procCategoria(){
+	public String procCategoria(Model model){
+		List<Producto> listadoProductos=pdao.listadoProductos();
+		model.addAttribute("listadoProductos", listadoProductos);
 		return "categoria";
 	}
 	

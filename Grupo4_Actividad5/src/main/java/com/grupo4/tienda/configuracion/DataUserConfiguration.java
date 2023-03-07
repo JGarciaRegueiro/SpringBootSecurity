@@ -37,7 +37,7 @@ public class DataUserConfiguration extends WebSecurityConfigurerAdapter {
 			//vistas sin auth
 			.antMatchers("/inicio", "/login","/logout", "/registro", "/search").permitAll()
 			//vistas para roles
-			.antMatchers("/categorias/**").hasAnyAuthority("ROLE_CLIENTE")
+			.antMatchers("/categorias/**").hasAnyAuthority("ROLE_CLIENTE", "ROLE_ADMINISTRADOR")
 			.antMatchers("/producto/**","/usuario/**").hasAnyAuthority("ROLE_ADMINISTRADOR")
 			
 			//Todas las demás requieren auth
