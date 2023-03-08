@@ -8,7 +8,7 @@
 	</head>
 	<body>
 		<jsp:include page="inicio.jsp"></jsp:include>
-		<h1>Alta producto</h1>
+		<h1>Editar producto</h1>
 		<form action="/producto/editar" method="POST">
 			<input type="number" name="idProducto" placeholder="${idProducto }" value="${idProducto }" required readonly><br><br>
 			<input type="text" name="nombre" placeholder="Nombre" required><br><br>
