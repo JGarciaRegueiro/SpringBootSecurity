@@ -31,7 +31,7 @@ public class ApiRestController {
 	
 	@GetMapping("/tipo/stockdisponible")
 	public List<Producto> tipoProducto() {
-		List<Producto> producto = ppdao.listadoProductos();
+		List<Producto> producto = ppdao.listadoProductosStock();
 		return producto;
 	}
 	
