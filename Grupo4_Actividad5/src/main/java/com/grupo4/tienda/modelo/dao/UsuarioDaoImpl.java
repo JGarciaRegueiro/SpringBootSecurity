@@ -1,5 +1,7 @@
 package com.grupo4.tienda.modelo.dao;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -19,11 +21,12 @@ public class UsuarioDaoImpl implements UsuarioDao{
 	}
 
 	@Override
-	public boolean consultarUsuario (String username, String password) {
-		for (Usuario usuario : urepo.findAll())
-		if (usuario.getUsername()== username && usuario.getPass()== password){
-			return true;
-		}
-		return false;	
+	public int consultarUsuario (String username) {
+		return urepo.obtenerUsuario(username).getIdUsuario();
+	}
+	
+	@Override
+	public Usuario consultarUno(int idUsuario){
+		return urepo.findById(idUsuario).orElse(null);
 	}
 }

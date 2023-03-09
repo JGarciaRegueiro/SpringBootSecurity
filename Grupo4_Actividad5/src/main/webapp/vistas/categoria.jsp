@@ -23,7 +23,7 @@
 	    </form>
 		
 		<sec:authorize access="hasAnyAuthority('ROLE_ADMINISTRADOR')">
-			<a href="/producto/alta">Nuevo Producto</a></td>
+			<a href="/producto/alta">Nuevo Producto</a>
 		</sec:authorize>
 		<%List<Producto> listadoProductos = (List<Producto>)request.getAttribute("listadoProductos");%>
 		<table>

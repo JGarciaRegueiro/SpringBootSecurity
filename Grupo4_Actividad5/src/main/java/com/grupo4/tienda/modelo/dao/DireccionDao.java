@@ -10,5 +10,6 @@ public interface DireccionDao {
 	boolean añadirDireccion(Direccion direccion);
 	boolean eliminarDireccion(int idDireccion);
 	boolean modificarDireccion(Direccion direccion);
+	Direccion consultarUno (int idDireccion);
 
 }

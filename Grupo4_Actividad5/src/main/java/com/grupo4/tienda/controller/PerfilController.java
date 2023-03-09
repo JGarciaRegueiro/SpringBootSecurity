@@ -1,6 +1,9 @@
 package com.grupo4.tienda.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,6 +30,8 @@ public class PerfilController {
 	private DireccionDaoImpl ddao;
 
 	
+	
+	
 	//URLS CORRESPONDIENTES A TARJETAS
 
 	@GetMapping("/tarjeta/alta")
@@ -44,7 +49,6 @@ public class PerfilController {
 		return "altaTarjeta";
 	}
 
-	
 	@GetMapping("/tarjeta/eliminar/{id}")
 	public String procEliminarTarjeta(@PathVariable("id") int idTarjeta){
 		tdao.eliminarTarjeta(idTarjeta);
@@ -58,14 +62,13 @@ public class PerfilController {
 	}
 	
 	@PostMapping("/tarjeta/modificar")
-	public String modificarTarjeta(Tarjeta tarjeta){
+	public String modificarTarjetaUsuario(Tarjeta tarjeta){
 		tdao.modificarTarjeta(tarjeta);
 		return "redirect:/perfil";
 	}
 	
 	//URLS CORRESPONDIENTES A DIRECCIONES
 
-	
 	@GetMapping("/direccion/alta")
 	public String procAltaDireccion(){
 		return "altaDireccion";
@@ -83,9 +86,16 @@ public class PerfilController {
 	
 	@GetMapping("/direccion/eliminar/{id}")
 	public String procEliminarDireccion(@PathVariable("id") int idDireccion){
-		ddao.eliminarDireccion(idDireccion);
+		Authentication auth = SecurityContextHolder
+	            .getContext()
+	            .getAuthentication();
+	    UserDetails userDetail = (UserDetails) auth.getPrincipal();
+	    int idUsuario = udao.consultarUsuario(userDetail.getUsername());
+	    udao.consultarUno(idUsuario).removeDireccion(ddao.consultarUno(idDireccion));
+	    udao.altaUsuario(udao.consultarUno(idUsuario));
 		return "redirect:/perfil";
 	}
+	
 	
 	@GetMapping("/direccion/modificar/{id}")
 	public String modificarDireccionForm(Model model, @PathVariable ("id") int idDireccion){
@@ -93,8 +103,8 @@ public class PerfilController {
 		return "modificarDireccion";
 	}
 	
-	@PostMapping("/tarjeta/modificar")
-	public String modificarDireccion(Direccion direccion){
+	@PostMapping("/direccion/modificar")
+	public String modificarDireccionUsuario(Direccion direccion){
 		ddao.modificarDireccion(direccion);
 		return "redirect:/perfil";
 	}

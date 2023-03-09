@@ -2,7 +2,10 @@ package com.grupo4.tienda.entities;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -37,6 +40,33 @@ public class Usuario implements Serializable {
 	private Date fechaRegistro;
 
 	private String nombre;
+	
+	//uni-directional many-to-many association to Direccion
+	@ManyToMany(cascade={CascadeType.PERSIST, CascadeType.MERGE})
+	@JoinTable(
+		name="usuariosdirecciones"
+		, joinColumns={
+			@JoinColumn(name="id_usuario")
+			}
+		, inverseJoinColumns={
+			@JoinColumn(name="id_direccion")
+			}
+		)
+	private List<Direccion> direcciones;
+	
+	//uni-directional many-to-many association to Tarjeta
+	@ManyToMany(cascade={CascadeType.PERSIST, CascadeType.MERGE})
+	@JoinTable(
+		name="usuariostarjetas"
+		, joinColumns={
+			@JoinColumn(name="id_usuario")
+			}
+		, inverseJoinColumns={
+			@JoinColumn(name="id_tarjeta")
+			}
+		)
+	private List<Tarjeta> tarjetas;
+	
 
 	public Usuario() {
 		this.fechaRegistro = new Date();
@@ -97,6 +127,49 @@ public class Usuario implements Serializable {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	
+	public List<Direccion> getDirecciones() {
+		return this.direcciones;
+	}
+
+	public void setDirecciones(List<Direccion> direcciones) {
+		this.direcciones = direcciones;
+	}
+
+	public List<Tarjeta> getTarjetas() {
+		return this.tarjetas;
+	}
+
+	public void setTarjetas(List<Tarjeta> tarjetas) {
+		this.tarjetas = tarjetas;
+	}
+	
+	
+	public void addTarjeta(Tarjeta tarjeta) {
+		if (tarjetas == null)
+			tarjetas = new ArrayList<>();
+		tarjetas.add(tarjeta);
+	}
+	
+	public void removeTarjeta(Tarjeta tarjeta) {
+		if (tarjetas == null)
+			tarjetas = new ArrayList<>();
+		tarjetas.remove(tarjeta);
+	}
+	
+	public void addDireccion(Direccion direccion) {
+		if (direcciones == null)
+			direcciones = new ArrayList<>();
+		direcciones.add(direccion);
+	}
+	
+	public void removeDireccion(Direccion direccion) {
+		if (direcciones == null)
+			direcciones = new ArrayList<>();
+		direcciones.remove(direccion);
+	}
+	
+
 
 	@Override
 	public int hashCode() {

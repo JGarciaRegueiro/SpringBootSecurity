@@ -18,10 +18,7 @@ public class TarjetaDaoImpl implements TarjetaDao{
 
 	@Override
 	public List<Tarjeta> listadoTarjetasPorUsuario(int idUsuario) {
-		List <Tarjeta>tarjetas = new ArrayList<>();
-		for (Tarjeta tarjeta : trepo.obtenerTarjetasPorIdUsuario()) {
-			tarjetas.add(tarjeta);
-		}
+		List<Tarjeta> tarjetas = trepo.findAll();
 		return tarjetas;
 	}
 	

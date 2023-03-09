@@ -5,6 +5,6 @@ import com.grupo4.tienda.entities.Usuario;
 public interface UsuarioDao {
 	
 	boolean altaUsuario(Usuario usuario);
-	boolean consultarUsuario(String username,String password);
-	
+	int consultarUsuario(String username);
+	Usuario consultarUno(int idUsuario);
 }

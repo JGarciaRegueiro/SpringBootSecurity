@@ -17,10 +17,7 @@ public class DireccionDaoImpl implements DireccionDao{
 
 	@Override
 	public List<Direccion> listadoDireccionesPorUsuario(int idUsuario) {
-		List <Direccion>direcciones = new ArrayList<>();
-		for (Direccion direccion : drepo.obtenerDireccionesUsuario(idUsuario)) {
-			direcciones.add(direccion);
-		}
+		List <Direccion>direcciones = drepo.findAll();
 		return direcciones;
 	}
 	
@@ -49,4 +46,11 @@ public class DireccionDaoImpl implements DireccionDao{
 		drepo.save(direccion);
 		return true;
 	}
+	
+	@Override
+	public Direccion consultarUno(int idDireccion) {
+		return drepo.findById(idDireccion).orElse(null);
+	}
+	
+	
 }
