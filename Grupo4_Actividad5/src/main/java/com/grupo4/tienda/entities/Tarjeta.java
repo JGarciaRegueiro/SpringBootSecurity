@@ -2,6 +2,9 @@ package com.grupo4.tienda.entities;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.Objects;
@@ -27,6 +30,7 @@ public class Tarjeta implements Serializable {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="fecha_caducidad")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date fechaCaducidad;
 
 	private String nombre;

@@ -48,4 +48,11 @@ public class TarjetaDaoImpl implements TarjetaDao{
 		return true;		
 	}
 	
+	@Override
+	public Tarjeta consultarUno(int idTarjeta) {;
+		return trepo.findById(idTarjeta).orElse(null);		
+	}
+	
+	
+	
 }

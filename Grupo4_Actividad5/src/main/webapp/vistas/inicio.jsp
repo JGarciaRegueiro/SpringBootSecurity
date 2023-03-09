@@ -12,15 +12,18 @@
 			<nav>
 			<a href="/inicio">Inicio</a>
 				<sec:authorize access="hasRole('ROLE_ADMINISTRADOR')">
-					<a href="/producto">Productos</a>
 					<a href="/usuario">Usuarios</a>
 				</sec:authorize>
 				<a href="/categorias">Categorías</a>
-				<a href="/login">Iniciar sesión</a>
+				<sec:authorize access="!isAuthenticated()">
+					<a href="/login">Iniciar sesión</a>
+				</sec:authorize>
 				<sec:authorize access="isAuthenticated()">
 					<a href="/logout">Cerrar sesión</a>
 				</sec:authorize>
-				<a href="/registro">Registrarse</a>
+				<sec:authorize access="!isAuthenticated()">
+					<a href="/registro">Registrarse</a>
+				</sec:authorize>
 				<a href="/carrito">Carrito</a>
 				<sec:authorize access="isAuthenticated()">
 					<a href="/perfil">Mi perfil</a>

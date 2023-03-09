@@ -7,4 +7,5 @@ public interface UsuarioDao {
 	boolean altaUsuario(Usuario usuario);
 	int consultarUsuario(String username);
 	Usuario consultarUno(int idUsuario);
+	boolean modificarUsuario(Usuario usuario);
 }

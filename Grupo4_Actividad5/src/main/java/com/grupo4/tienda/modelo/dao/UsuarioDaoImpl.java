@@ -29,4 +29,10 @@ public class UsuarioDaoImpl implements UsuarioDao{
 	public Usuario consultarUno(int idUsuario){
 		return urepo.findById(idUsuario).orElse(null);
 	}
+	
+	@Override
+	public boolean modificarUsuario(Usuario usuario) {
+		urepo.save(usuario);
+		return true;
+	}
 }

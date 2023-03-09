@@ -9,11 +9,11 @@
 <body>
 	<jsp:include page="inicio.jsp"></jsp:include>
 			<h1>Alta Direccion</h1>
-			<form action="/direccion/alta" method="POST">
+			<form action="/perfil/direccion/alta" method="POST">
 				<input type="number" name="codigoPostal" placeholder="Código Postal" required><br><br>
 				<input type="text" name="localidad" placeholder="Localidad" required><br><br>
 				<input type="text" name="calle" placeholder="Nombre de la calle" required><br><br>
-				<input type="number" name="numero" placeholder="Número de la calle" required><br><br>
+				<input type="number" name="numero" placeholder="Número" required><br><br>
 				<input type="number" name="piso" placeholder="Piso" required><br><br>
 				<input type="text" name="letra" placeholder="Letra" required><br><br>
 				<input type="submit" value="Dar de alta tarjeta">

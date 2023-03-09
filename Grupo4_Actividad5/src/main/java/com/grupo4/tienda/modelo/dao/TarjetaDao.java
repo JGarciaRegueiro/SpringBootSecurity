@@ -11,5 +11,6 @@ public interface TarjetaDao {
 	boolean añadirTarjeta(Tarjeta tarjeta);
 	boolean eliminarTarjeta(int idTarjeta);
 	boolean modificarTarjeta(Tarjeta tarjeta);
+	Tarjeta consultarUno(int idTarjeta);
 
 }

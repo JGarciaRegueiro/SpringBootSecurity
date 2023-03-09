@@ -41,17 +41,25 @@ public class PerfilController {
 	
 	@PostMapping("/tarjeta/alta")
 	public String altaTarjeta(Model model, Tarjeta tarjeta){
-		if(tdao.añadirTarjeta(tarjeta)) {
-			model.addAttribute("mensaje","Tarjeta añadida correctamente");
-		}else {
-			model.addAttribute("mensaje","Tarjeta NO añadida");
-		}
-		return "altaTarjeta";
+		Authentication auth = SecurityContextHolder
+	            .getContext()
+	            .getAuthentication();
+	    UserDetails userDetail = (UserDetails) auth.getPrincipal();
+	    int idUsuario = udao.consultarUsuario(userDetail.getUsername());
+	    udao.consultarUno(idUsuario).addTarjeta(tarjeta);
+	    udao.modificarUsuario(udao.consultarUno(idUsuario));
+		return "redirect:/perfil";
 	}
 
 	@GetMapping("/tarjeta/eliminar/{id}")
 	public String procEliminarTarjeta(@PathVariable("id") int idTarjeta){
-		tdao.eliminarTarjeta(idTarjeta);
+		Authentication auth = SecurityContextHolder
+	            .getContext()
+	            .getAuthentication();
+	    UserDetails userDetail = (UserDetails) auth.getPrincipal();
+	    int idUsuario = udao.consultarUsuario(userDetail.getUsername());
+		udao.consultarUno(idUsuario).removeTarjeta(tdao.consultarUno(idTarjeta));
+	    udao.modificarUsuario(udao.consultarUno(idUsuario));
 		return "redirect:/perfil";
 	}
 	
@@ -76,12 +84,14 @@ public class PerfilController {
 	
 	@PostMapping("/direccion/alta")
 	public String altaDireccion(Model model, Direccion direccion){
-		if(ddao.añadirDireccion(direccion)) {
-			model.addAttribute("mensaje","Dirección añadida correctamente");
-		}else {
-			model.addAttribute("mensaje","Dirección NO añadida");
-		}
-		return "altaDireccion";
+		Authentication auth = SecurityContextHolder
+	            .getContext()
+	            .getAuthentication();
+	    UserDetails userDetail = (UserDetails) auth.getPrincipal();
+	    int idUsuario = udao.consultarUsuario(userDetail.getUsername());
+	    udao.consultarUno(idUsuario).addDireccion(direccion);
+	    udao.modificarUsuario(udao.consultarUno(idUsuario));
+		return "redirect:/perfil";
 	}
 	
 	@GetMapping("/direccion/eliminar/{id}")
@@ -92,7 +102,7 @@ public class PerfilController {
 	    UserDetails userDetail = (UserDetails) auth.getPrincipal();
 	    int idUsuario = udao.consultarUsuario(userDetail.getUsername());
 	    udao.consultarUno(idUsuario).removeDireccion(ddao.consultarUno(idDireccion));
-	    udao.altaUsuario(udao.consultarUno(idUsuario));
+	    udao.modificarUsuario(udao.consultarUno(idUsuario));
 		return "redirect:/perfil";
 	}
 	
