@@ -1,12 +1,10 @@
 package com.grupo4.tienda.modelo.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.grupo4.tienda.entities.Producto;
 import com.grupo4.tienda.entities.Tarjeta;
 import com.grupo4.tienda.repository.TarjetaRepository;
 

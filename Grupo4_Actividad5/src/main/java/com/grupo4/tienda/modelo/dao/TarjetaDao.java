@@ -2,7 +2,6 @@ package com.grupo4.tienda.modelo.dao;
 
 import java.util.List;
 
-import com.grupo4.tienda.entities.Producto;
 import com.grupo4.tienda.entities.Tarjeta;
 
 public interface TarjetaDao {
