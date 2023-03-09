@@ -73,4 +73,15 @@ public class ProductoDaoImpl implements ProductoDao{
 		return prepo.buscarPorMenosStock();
 	}
 	
+	@Override
+	public List<Producto> listadoProductosStock(){
+		List<Producto> listadoProductos = new ArrayList<>();
+		for (Producto producto : prepo.findAll()) {
+			if (producto.getStock()>0) {
+				listadoProductos.add(producto);
+			}
+		}
+		return listadoProductos();
+	}
+	
 }

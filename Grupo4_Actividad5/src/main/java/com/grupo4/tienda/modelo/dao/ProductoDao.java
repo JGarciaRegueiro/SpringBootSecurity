@@ -14,5 +14,5 @@ public interface ProductoDao {
 	List<Producto> listadoPorPrecioAscendente();
 	List<Producto> listadoPorPrecioDescendente();
 	List<Producto> listadoPorMenorStock();
-
+	List<Producto> listadoProductosStock();
 }

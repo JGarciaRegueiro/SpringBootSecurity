@@ -84,21 +84,18 @@ public class TiendaController {
 		return "perfil";
 	}
 	
+	@GetMapping("/usuario")
+	public String procUsuario(Model model){
+		List<Usuario> listadoUsuarios = udao.consultarTodos();
+		model.addAttribute("listadoUsuarios",listadoUsuarios);
+		return "usuario";
+	}
+	
 	@GetMapping("/carrito")
 	public String procCarrito(){
 		return "carrito";
 	}
 	
-	@GetMapping("/producto")
-	public String procProducto(Model model){
-		List<Producto> productos = pdao.listadoProductos();
-		model.addAttribute("productos", productos);
-		return "productos";	
-	}
 	
-	@GetMapping("/usuario")
-	public String procUsuario(){
-		return "usuario";
-	}
 	
 }

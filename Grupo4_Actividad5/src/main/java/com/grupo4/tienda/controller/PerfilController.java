@@ -63,13 +63,13 @@ public class PerfilController {
 		return "redirect:/perfil";
 	}
 	
-	@GetMapping("/tarjeta/modificar/{id}")
+	@GetMapping("/tarjeta/editar/{id}")
 	public String modificarTarjetaForm(Model model, @PathVariable ("id") int idTarjeta){
 		model.addAttribute("idTarjeta",idTarjeta);
 		return "modificarTarjeta";
 	}
 	
-	@PostMapping("/tarjeta/modificar")
+	@PostMapping("/tarjeta/editar")
 	public String modificarTarjetaUsuario(Tarjeta tarjeta){
 		tdao.modificarTarjeta(tarjeta);
 		return "redirect:/perfil";
@@ -107,13 +107,13 @@ public class PerfilController {
 	}
 	
 	
-	@GetMapping("/direccion/modificar/{id}")
+	@GetMapping("/direccion/editar/{id}")
 	public String modificarDireccionForm(Model model, @PathVariable ("id") int idDireccion){
 		model.addAttribute("idDireccion",idDireccion);
 		return "modificarDireccion";
 	}
 	
-	@PostMapping("/direccion/modificar")
+	@PostMapping("/direccion/editar")
 	public String modificarDireccionUsuario(Direccion direccion){
 		ddao.modificarDireccion(direccion);
 		return "redirect:/perfil";
