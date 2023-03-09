@@ -81,7 +81,7 @@ public class ProductoDaoImpl implements ProductoDao{
 				listadoProductos.add(producto);
 			}
 		}
-		return listadoProductos();
+		return listadoProductos;
 	}
 	
 }
